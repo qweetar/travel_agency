@@ -8,7 +8,7 @@ import ru.myfirstwebsite.domain.Review;
 import ru.myfirstwebsite.service.ReviewService;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class ReviewController {
 
     @Autowired

@@ -3,6 +3,7 @@ package ru.myfirstwebsite.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import ru.myfirstwebsite.domain.enums.Role;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -28,6 +29,11 @@ public class User {
 
   @Column(name = "password")
   private String pass;
+
+  @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+  @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+  @Enumerated(EnumType.STRING)
+  private Set<Role> roles;
 
   @ManyToMany(mappedBy = "users",
           fetch = FetchType.EAGER,

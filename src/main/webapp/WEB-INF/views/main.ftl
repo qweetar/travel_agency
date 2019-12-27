@@ -1,6 +1,11 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
+    <div>
+        <form action="/logout" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
 <h1>I'm first template</h1>
 <a href="/users">go to Users</a>
 <br>

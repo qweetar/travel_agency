@@ -28,7 +28,7 @@ User page
                 <th>Id</th>
                 <th>Date</th>
                 <th>Review</th>
-                <th>User</th>
+                <th>Hotel</th>
             </tr>
 
             <#list reviews as review>
@@ -36,7 +36,7 @@ User page
                     <td>${review.reviewId}</td>
                     <td>${review.reviewDate}</td>
                     <td>${review.reviewText}</td>
-                    <td>${review.user.userName}</td>
+                    <td>${review.tour.hotel.hotelName}</td>
                     <td><a href="/deleteReview/${review.reviewId}">Delete</a></td>
                     <td><a href="/updateReview/${review.reviewId}">Update</a></td>
                 </tr>

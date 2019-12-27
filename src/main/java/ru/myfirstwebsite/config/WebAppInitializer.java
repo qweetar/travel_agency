@@ -18,7 +18,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
         flyway.migrate();
 
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(SpringConfig.class, WebConfig.class);
+        context.register(SpringConfig.class, WebConfig.class, WebSecurityConfig.class);
         context.setServletContext(servletContext);
 
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(context));

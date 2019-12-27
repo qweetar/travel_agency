@@ -5,8 +5,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.myfirstwebsite.domain.User;
+import ru.myfirstwebsite.domain.enums.Role;
 import ru.myfirstwebsite.service.ReviewService;
 import ru.myfirstwebsite.service.UserService;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/")
@@ -19,13 +26,13 @@ public class UserController {
     public ReviewService reviewService;
 
     @GetMapping("/")
-    public String index(){
-        return "index";
+    public String greeting(){
+        return "greeting";
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
+    @GetMapping("/main")
+    public String main() {
+        return "main";
     }
 
     @GetMapping("/users")
@@ -37,30 +44,66 @@ public class UserController {
     @GetMapping("/user/{id}")
     public String getById(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getById(id));
-        model.addAttribute("reviews", reviewService.getReviewByTourId(id));
+        model.addAttribute("reviews", reviewService.getReviewByUserId(id));
         return "showUser";
     }
 
-    @GetMapping("/addUser")
+    @GetMapping("/registration")
     public String createUserPage() {
-        return "createUser";
+        return "registration";
     }
 
-    @PostMapping("/addUser")
-    public String addUser(@ModelAttribute("user") User user) {
-        userService.save(user);
-        return "redirect:/users";
+    @PostMapping("/registration")
+    public String addUser(@ModelAttribute("user") User user, Map<String, Object> model) {
+        Boolean userExist = userService.save(user);
+
+        if (userExist = true) {
+            model.put("message", "User exists!");
+            return "registration";
+        }
+        user.setRoles(Collections.singleton(Role.USER));
+
+        return "redirect:/login";
     }
+
+//    @PostMapping("/updateUser")
+//    public String updateUser(@ModelAttribute("user") User user) {
+//        userService.update(user);
+//        return "redirect:/user/" + user.getId();
+//    }
 
     @PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute("user") User user) {
-        userService.update(user);
-        return "redirect:/user/" + user.getId();
+//    @PreAuthorize("hasAuthority('ADMIN')")
+    public String updateUser(
+            @ModelAttribute("user") User user,
+            @RequestParam Map<String, String> form
+    ) {
+        User userFromDb = userService.getById(user.getId());
+        userFromDb.setPass(user.getPass());
+        userFromDb.setEmail(user.getEmail());
+        userFromDb.setLogin(user.getLogin());
+        userFromDb.setUserName(user.getUserName());
+
+        Set<String> roles = Arrays.stream(Role.values())
+                .map(Role::name)
+                .collect(Collectors.toSet());
+
+        userFromDb.getRoles().clear();
+
+        for (String key : form.keySet()) {
+            if (roles.contains(key)) {
+                userFromDb.getRoles().add(Role.valueOf(key));
+            }
+        }
+
+        userService.update(userFromDb);
+        return "redirect:/user/" + userFromDb.getId();
     }
 
     @GetMapping("/update/{id}")
-    public String update(@PathVariable("id") Long id, Model model) {
+    public String userEditForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getById(id));
+        model.addAttribute("roles", Role.values());
         return "editUser";
     }
 

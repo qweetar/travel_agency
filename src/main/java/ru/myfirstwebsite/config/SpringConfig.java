@@ -13,7 +13,9 @@ import javax.sql.DataSource;
 @ComponentScan("ru.myfirstwebsite")
 @EnableAspectJAutoProxy
 @Import({
-        PersistenceConfig.class
+        PersistenceConfig.class,
+        WebConfig.class,
+        WebSecurityConfig.class
 })
 public class SpringConfig {
 

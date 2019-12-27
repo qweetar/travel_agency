@@ -12,7 +12,7 @@ import ru.myfirstwebsite.service.TourService;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class TourController {
 
     @Autowired

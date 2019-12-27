@@ -1,9 +1,3 @@
 
-squid:UselessImportCheck
-"`Remove this unused import 'org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate'.(ş¯ñ·şÿÿÿÿ8¾œ¨èï-
-]squid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8¾œ¨èï-
-hsquid:S2095L"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8´ãÔâ-
-Msquid:S2201O"*The return value of "orElse" must be used.(Û¶ñŞúÿÿÿÿ8Ô“Ûâ-
-Ysquid:UselessImportCheck"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8¾œ¨èï-
-tsquid:UselessImportCheck"DRemove this unused import 'org.springframework.jdbc.core.RowMapper'.(¦¬ÀÙùÿÿÿÿ8¾œ¨èï-
-†squid:UselessImportCheck	"[Remove this unused import 'org.springframework.jdbc.core.namedparam.MapSqlParameterSource'.(²Ñ8 Ö§èï-
+hsquid:S2095G"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8´ãÔâ-
+Msquid:S2201J"*The return value of "orElse" must be used.(Û¶ñŞúÿÿÿÿ8Ô“Ûâ-
