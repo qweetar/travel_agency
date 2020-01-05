@@ -1,3 +1,6 @@
+<#include "security.ftl">
+<#import "login.ftl" as l>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/main">Travel Agency</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +15,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
             </li>
+            <#if isUser>
             <li class="nav-item">
-                <a class="nav-link" href="/showUser">User profile</a>
+                <a class="nav-link" href="/userProfile/${user.username}">User profile</a>
             </li>
+            </#if>
+            <#if isAdmin>
+            <li>
+                <a class="nav-link" href="/users">List of Users</a>
+            </li>
+            </#if>
         </ul>
+
+        <div class="navbar-text mr-3">${name}</div>
+        <@l.logout/>
     </div>
 </nav>

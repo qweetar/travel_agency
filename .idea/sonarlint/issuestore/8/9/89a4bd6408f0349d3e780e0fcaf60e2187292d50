@@ -1,3 +1,6 @@
 
-hsquid:S2095G"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8´ãÔâ-
 Msquid:S2201J"*The return value of "orElse" must be used.(Û¶ñŞúÿÿÿÿ8Ô“Ûâ-
+ksquid:S2259]"HA "NullPointerException" could be thrown; "userFromDb" is nullable here.(Ñ©ÏÓûÿÿÿÿ8áÅ©Ïö-
+hsquid:S2095X"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8Øœ™Ïö-
+hsquid:S2095G"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8´ãÔâ-
+squid:S1488]"^Immediately return this expression instead of assigning it to the temporary variable "userId".(Ñ©ÏÓûÿÿÿÿ8·í©Ïö-

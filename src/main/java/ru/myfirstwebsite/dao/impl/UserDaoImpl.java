@@ -82,4 +82,16 @@ public class UserDaoImpl implements UserDao {
             }
 
     }
+
+    @Override
+    public Long getIdByUserName(String username) {
+        Session session = sessionFactory.openSession();
+        TypedQuery<User> query = session.createQuery("select tu from User tu where tu.userName = :username", User.class);
+        query.setParameter("username", username);
+        User userFromDb = query.getResultList().stream().findFirst().orElse(null);
+
+        Long userId = userFromDb.getId();
+
+        return userId;
+    }
 }

@@ -1,17 +1,33 @@
 <#import "parts/common.ftl" as c>
 <#import "login.ftl" as l>
 <@c.page>
-    Add new user
+    Register
     <form name="user" action="/registration" method="post">
-        <p>Login</p>
-        <input title="Login" type="text" name="login">
-        <p>Name</p>
-        <input title="Name" type="text" name="userName">
-        <p>Email</p>
-        <input title="Email" type="text" name="email">
-        <p>Password</p>
-        <input title="Password" type="text" name="pass">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Login : </label>
+            <div class="col-sm-5">
+                <input title="Login" type="text" name="login" placeholder="Login">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">User Name : </label>
+            <div class="col-sm-5">
+                <input title="Name" type="text" name="userName" placeholder="User name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Email : </label>
+            <div class="col-sm-5">
+                <input title="Email" type="text" name="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Login : </label>
+            <div class="col-sm-5">
+                <input title="Password" type="text" name="pass" placeholder="Password">
+            </div>
+        </div>
         <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="OK">
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </@c.page>

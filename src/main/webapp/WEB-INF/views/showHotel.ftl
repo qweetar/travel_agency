@@ -1,39 +1,39 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 Hotel page
-<table>
+<table class="table table-borderless">
     <tr>
-        <td>Id</td>
+        <th scope="row">Id</th>
         <td>${hotel.hotelId}</td>
     </tr>
     <tr>
-        <td>Name</td>
+        <th scope="row">Name</td>
         <td>${hotel.hotelName}</td>
     </tr>
     <tr>
-        <td>Number of stars</td>
+        <th scope="row">Number of stars</td>
         <td>${hotel.hotelStars}</td>
     </tr>
     <tr>
-        <td>Website</td>
+        <th scope="row">Website</td>
         <td>${hotel.hotelWebSite}</td>
     </tr>
     <tr>
-        <td>Latitude</td>
+        <th scope="row">Latitude</td>
         <td>${hotel.hotelLatitude}</td>
     </tr>
     <tr>
-        <td>Longitude</td>
+        <th scope="row">Longitude</td>
         <td>${hotel.hotelLongitude}</td>
     </tr>
     <tr>
-        <td>Hotel features</td>
+        <th scope="row">Hotel features</td>
         <td>${hotel.hotelFeatures}</td>
     </tr>
 </table>
     <br>
-    <a href="/tours">Back to Tours</a>
+    <a class="nav-link" href="/tours">Back to Tours</a>
 
 <br>
-<a href="/hotels">Back to Hotels</a>
+<a class="nav-link" href="/hotels">Back to Hotels</a>
 </@c.page>

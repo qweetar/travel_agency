@@ -1,14 +1,18 @@
 
-„squid:S2178r"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(Æí¡8Ö•ò½ğ-
 Ssquid:EmptyStatementUsageCheckŠ"Remove this empty statement.(¹¼¦Óüÿÿÿÿ8Ö•ò½ğ-
-|squid:S2293n"YReplace the type specification in this constructor call with the diamond operator ("<>").(£æùßûÿÿÿÿ8Ö•ò½ğ-
+psquid:S00117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ—Øô8Ö•ò½ğ-
 W
 squid:S106Œ"9Replace this use of System.out or System.err by a logger.(¹ï8Ö•ò½ğ-
-\
-squid:S106"9Replace this use of System.out or System.err by a logger.(ıí“êıÿÿÿÿ8Ö•ò½ğ-
+„squid:S2178r"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(Æí¡8Ö•ò½ğ-
+~squid:S1488¦"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8Ö•ò½ğ-
+|squid:S2293n"YReplace the type specification in this constructor call with the diamond operator ("<>").(£æùßûÿÿÿÿ8Ö•ò½ğ-
 W
 squid:S106"9Replace this use of System.out or System.err by a logger.(ŞñÂÏ8Ö•ò½ğ-
+\
+squid:S106"9Replace this use of System.out or System.err by a logger.(ıí“êıÿÿÿÿ8Ö•ò½ğ-
 }squid:S1488_"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8Ö•ò½ğ-
 ~squid:S1488"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8Ö•ò½ğ-
-~squid:S1488¦"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8Ö•ò½ğ-
-psquid:S00117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ—Øô8Ö•ò½ğ-
+hsquid:S2095X"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øˆÏö-
+hsquid:S2095e"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øˆÏö-
+isquid:S2095£"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øˆÏö-
+isquid:S2095–"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øˆÏö-

@@ -1,34 +1,36 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 User page
-<table>
+<table class="table table-borderless">
     <tr>
-        <td>Id</td>
+        <th scope="row">Id</th>
         <td>${user.id}</td>
     </tr>
     <tr>
-        <td>Login</td>
+        <th scope="row">Login</th>
         <td>${user.login}</td>
     </tr>
     <tr>
-        <td>Name</td>
+        <th scope="row">Name</th>
         <td>${user.userName}</td>
     </tr>
     <tr>
-        <td>Email</td>
+        <th scope="row">Email</td>
         <td>${user.email}</td>
     </tr>
 </table>
     <br>
-    <a href="/tourByUser/${user.id}">User reserved Tours</a>
+    <a class="nav-link" href="/tourByUser/${user.id}">User reserved Tours</a>
     <br>
     <div>
-        <table>
+        <table class="table table-striped">
             <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Review</th>
-                <th>Hotel</th>
+                <th scope="col">Id</th>
+                <th scope="col">Date</th>
+                <th scope="col">Review</th>
+                <th scope="col">Hotel</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
 
             <#list reviews as review>

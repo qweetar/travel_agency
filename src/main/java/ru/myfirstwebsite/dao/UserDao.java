@@ -6,4 +6,6 @@ import ru.myfirstwebsite.domain.User;
 public interface UserDao extends GenericDao<User, Long> {
 
     Long findUserIdByEmail(String email);
+
+    Long getIdByUserName(String username);
 }

@@ -1,52 +1,54 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 Tour page
-<table>
+<table class="table table-borderless">
     <tr>
-        <td>Id</td>
+        <th scope="row">Id</td>
         <td>${tour.tourId}</td>
     </tr>
     <tr>
-        <td>Photo</td>
+        <th scope="row">Photo</td>
         <td><img src="${tour.tourPhoto}"/></td>
     </tr>
     <tr>
-        <td>Tour date</td>
+        <th scope="row">Tour date</td>
         <td>${tour.tourDate}</td>
     </tr>
     <tr>
-        <td>Duration</td>
+        <th scope="row">Duration</td>
         <td>${tour.tourDuration}</td>
     </tr>
     <tr>
-        <td>Description</td>
+        <th scope="row">Description</td>
         <td>${tour.tourDescription}</td>
     </tr>
     <tr>
-        <td>Price</td>
+        <th scope="row">Price</td>
         <td>${tour.tourCost}</td>
     </tr>
     <tr>
-        <td>Type</td>
+        <th scope="row">Type</td>
         <td>${tour.tourType}</td>
     </tr>
     <tr>
-        <td>Hotel</td>
+        <th scope="row">Hotel</td>
         <td><a href="/hotel/${tour.hotel.hotelId}">${tour.hotel.hotelName}</a></td>
     </tr>
     <tr>
-        <td>Country</td>
+        <th scope="row">Country</td>
         <td><a href="/country/${tour.country.countryId}">${tour.country.countryName}</a></td>
     </tr>
 </table>
 <br>
     <div>
-        <table>
+        <table class="table table-striped">
             <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Review</th>
-                <th>User</th>
+                <th scope="col">Id</th>
+                <th scope="col">Date</th>
+                <th scope="col">Review</th>
+                <th scope="col">User</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
 
             <#list reviews as review>
@@ -64,5 +66,5 @@ Tour page
         </table>
     </div>
 <br>
-<a href="/tours">Back</a>
+<a class="nav-link" href="/tours">Back</a>
 </@c.page>

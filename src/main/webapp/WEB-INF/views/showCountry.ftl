@@ -1,19 +1,19 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 Country page
-<table>
+<table class="table table-borderless">
     <tr>
-        <td>Id</td>
+        <th scope="row">Id</th>
         <td>${country.countryId}</td>
     </tr>
     <tr>
-        <td>Name</td>
+        <th scope="row">Name</th>
         <td>${country.countryName}</td>
     </tr>
 </table>
     <br>
-    <a href="/tours">Back to Tours</a>
+    <a class="nav-link" href="/tours">Back to Tours</a>
 
 <br>
-<a href="/countries">Back to Countries</a>
+<a class="nav-link" href="/countries">Back to Countries</a>
 </@c.page>

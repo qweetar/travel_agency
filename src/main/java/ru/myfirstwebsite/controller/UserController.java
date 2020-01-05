@@ -48,6 +48,14 @@ public class UserController {
         return "showUser";
     }
 
+    @GetMapping("/userProfile/{username}")
+    public String getByUserName(@PathVariable("username") String username, Model model) {
+        Long id = userService.getIdByUserName(username);
+        model.addAttribute("user", userService.getById(id));
+        model.addAttribute("reviews", reviewService.getReviewByUserId(id));
+        return "showUser";
+    }
+
     @GetMapping("/registration")
     public String createUserPage() {
         return "registration";

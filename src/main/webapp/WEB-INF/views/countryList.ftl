@@ -1,15 +1,17 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 List of Countries
-<table>
+<table class="table table-striped">
     <tr>
-        <th>Id</th>
-        <th>Name</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
 
     <#list countries as country>
         <tr>
-            <td><a href="/country/${country.countryId}">${country.countryId}</a></td>
+            <th scope="row"><a href="/country/${country.countryId}">${country.countryId}</a></th>
             <td>${country.countryName}</td>
             <td><a href="/deleteCountry/${country.countryId}">Delete</a></td>
             <td><a href="/updateCountry/${country.countryId}">Update</a></td>

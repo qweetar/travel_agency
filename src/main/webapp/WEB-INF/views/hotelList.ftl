@@ -1,20 +1,22 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 List of Hotels
-<table>
+<table class="table table-striped">
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Number fo Stars</th>
-        <th>Website</th>
-        <th>Features</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Number fo Stars</th>
+        <th scope="col">Website</th>
+        <th scope="col">Features</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">Longitude</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
 
     <#list hotels as hotel>
         <tr>
-            <td><a href="/hotel/${hotel.hotelId}">${hotel.hotelId}</a></td>
+            <th scope="row"><a href="/hotel/${hotel.hotelId}">${hotel.hotelId}</a></th>
             <td>${hotel.hotelName}</td>
             <td>${hotel.hotelStars}</td>
             <td>${hotel.hotelWebSite}</td>

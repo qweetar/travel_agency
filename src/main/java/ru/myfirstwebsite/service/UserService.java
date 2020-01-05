@@ -5,4 +5,5 @@ import ru.myfirstwebsite.domain.User;
 public interface UserService extends GenericService<User, Long> {
 
 
+    Long getIdByUserName(String username);
 }
