@@ -1,6 +1,7 @@
 package ru.myfirstwebsite.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.myfirstwebsite.dao.UserDao;
@@ -62,7 +63,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Long getIdByUserName(String username) {
-        return userDao.getIdByUserName(username);
+    public Long getIdByUserName(String username) throws UsernameNotFoundException {
+        Long userId = userDao.getIdByUserName(username);
+
+        if (userId == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        return userId;
     }
 }

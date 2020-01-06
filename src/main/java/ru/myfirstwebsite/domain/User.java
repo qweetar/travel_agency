@@ -30,6 +30,7 @@ public class User {
   private String email;
 
   @Column(name = "login")
+  @NotBlank(message = "Login cannot be empty")
   private String login;
 
   @Column(name = "password")

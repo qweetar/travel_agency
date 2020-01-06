@@ -10,6 +10,7 @@ import ru.myfirstwebsite.domain.enums.Role;
 import ru.myfirstwebsite.service.ReviewService;
 import ru.myfirstwebsite.service.UserService;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
@@ -63,9 +64,9 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String addUser(@ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
+    public String addUser(@Valid User user, BindingResult bindingResult, Model model) {
         if (user.getPass() != null && !user.getPass().equals(user.getPass2())) {
-            model.addAttribute("passwordEncoder", "Passwords are different!");
+            model.addAttribute("passError", "Passwords are different!");
         }
 
         if (bindingResult.hasErrors()) {
@@ -76,10 +77,8 @@ public class UserController {
             return "registration";
         }
 
-        Boolean userExist = userService.save(user);
-
-        if (userExist = true) {
-            model.addAttribute("message", "User exists!");
+        if (!userService.save(user)) {
+            model.addAttribute("userNameError", "User exists!");
             return "registration";
         }
 
