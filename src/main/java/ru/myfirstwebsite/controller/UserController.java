@@ -3,6 +3,7 @@ package ru.myfirstwebsite.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.myfirstwebsite.domain.User;
 import ru.myfirstwebsite.domain.enums.Role;
@@ -62,23 +63,28 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String addUser(@ModelAttribute("user") User user, Map<String, Object> model) {
+    public String addUser(@ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
+        if (user.getPass() != null && !user.getPass().equals(user.getPass2())) {
+            model.addAttribute("passwordEncoder", "Passwords are different!");
+        }
+
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
+
+            model.mergeAttributes(errors);
+
+            return "registration";
+        }
+
         Boolean userExist = userService.save(user);
 
         if (userExist = true) {
-            model.put("message", "User exists!");
+            model.addAttribute("message", "User exists!");
             return "registration";
         }
-        user.setRoles(Collections.singleton(Role.USER));
 
         return "redirect:/login";
     }
-
-//    @PostMapping("/updateUser")
-//    public String updateUser(@ModelAttribute("user") User user) {
-//        userService.update(user);
-//        return "redirect:/user/" + user.getId();
-//    }
 
     @PostMapping("/updateUser")
 //    @PreAuthorize("hasAuthority('ADMIN')")

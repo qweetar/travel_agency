@@ -1,11 +1,14 @@
 package ru.myfirstwebsite.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.myfirstwebsite.dao.UserDao;
 import ru.myfirstwebsite.domain.User;
+import ru.myfirstwebsite.domain.enums.Role;
 import ru.myfirstwebsite.service.UserService;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -13,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserDao userDao;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public void setUserDao(UserDao userDao) {
@@ -31,6 +37,10 @@ public class UserServiceImpl implements UserService {
         if(userIdFromDb != null) {
             return false;
         }
+
+        user.setRoles(Collections.singleton(Role.USER));
+        user.setPass(passwordEncoder.encode(user.getPass()));
+
         userDao.save(user);
 
         return true;
